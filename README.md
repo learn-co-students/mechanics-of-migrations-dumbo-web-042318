@@ -52,7 +52,25 @@ at the appropriate time.
 1. Create a directory called `db` at the top level of the lesson's directory.
    Then, within the `db` directory, create a `migrate` directory. The
    `mkdir` command is the appropriate tool to use here.
-2. In the `db/migrate ` directory, create a file called `01_create_artists.rb`
+2. In the `db/migrate ` directory, create a file called `class CreateArtists < ActiveRecord::Migration
+  def change
+    create_table :artists do |t|
+      t.string :name
+      t.string :genre
+      t.integer :age
+      t.string :hometown
+    end
+  end
+endclass CreateArtists < ActiveRecord::Migration
+  def change
+    create_table :artists do |t|
+      t.string :name
+      t.string :genre
+      t.integer :age
+      t.string :hometown
+    end
+  end
+end`
    (we'll talk about why we added the `01` later).
 
 ```text
